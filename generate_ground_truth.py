@@ -6,8 +6,8 @@ import os
 import torch, torchvision
 # Some basic setup:
 # Setup detectron2 logger
-from skimage import measure                        # (pip install scikit-image)
-from shapely.geometry import Polygon, MultiPolygon # (pip install Shapely)
+# from skimage import measure                        # (pip install scikit-image)
+# from shapely.geometry import Polygon, MultiPolygon # (pip install Shapely)
 import detectron2
 from detectron2.utils.logger import setup_logger
 setup_logger()
@@ -23,7 +23,7 @@ from detectron2.config import get_cfg
 from detectron2.utils.visualizer import Visualizer
 from detectron2.data import MetadataCatalog, DatasetCatalog
 
-from panopticapi.utils import id2rgb
+# from panopticapi.utils import id2rgb
 
 category_names = set()
 
