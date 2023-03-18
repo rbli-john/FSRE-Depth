@@ -3,7 +3,7 @@ proj_misc=/home/notebook/data/group/rongbin/proj_misc/Github/FSRE-Depth
 if [[ $1 == "test" ]]; then
     echo "In test mode, arguments is hard-coded in the script ..."
     gpu=1
-    config=Roiformer_res50_192
+    config=Roiformer_vovnet_192_adaptive_attn
     log_dir=${proj_misc}/test_results
 elif [[ $1 == "prod" ]]; then
     echo "In prod mode ..."
