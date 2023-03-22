@@ -2,6 +2,7 @@ import os
 import importlib
 
 import cv2
+import matplotlib.pyplot as plt
 import numpy as np
 import torch
 from torch.utils.data import DataLoader
@@ -149,7 +150,12 @@ def evaluate(opt):
             depth = np.clip(depth, 0, 80)
             depth = np.uint16(depth * 256)
             save_path = os.path.join(save_dir, "{:010d}.png".format(idx))
-            cv2.imwrite(save_path, depth)
+            # heat map
+            colormap = plt.get_cmap('plasma')
+            heatmap = (colormap(depth) * 2**16).astype(np.uint16)[:,:,:3]
+            heatmap = cv2.cvtColor(heatmap, cv2.COLOR_RGB2BGR)
+            cv2.imwrite(save_path, heatmap)
+            # cv2.imwrite(save_path, depth)
 
         print("-> No ground truth is available for the KITTI benchmark, so not evaluating. Done.")
         quit()
