@@ -215,8 +215,12 @@ def evaluate(opt):
 
 if __name__ == "__main__":
     options = Options().parse()
+    data_path = options.data_path
     if options.config is not None:
         config_module = importlib.import_module('configs.{}'.format(options.config))
         options.__dict__.update(config_module.cfg)
-        options.model_name =  options.config)
+        options.model_name =  options.config
+    # for small batch evaluation
+    if data_path is not None:
+        options.data_path = data_path
     evaluate(options)
