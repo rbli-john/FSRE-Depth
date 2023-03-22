@@ -151,10 +151,13 @@ def evaluate(opt):
             depth = np.uint16(depth * 256)
             save_path = os.path.join(save_dir, "{:010d}.png".format(idx))
             # heat map
-            colormap = plt.get_cmap('plasma')
-            heatmap = (colormap(depth) * 2**16).astype(np.uint16)[:,:,:3]
-            heatmap = cv2.cvtColor(heatmap, cv2.COLOR_RGB2BGR)
-            cv2.imwrite(save_path, heatmap)
+            # colormap = plt.get_cmap('plasma')
+            # heatmap = (colormap(depth) * 2**16).astype(np.uint16)[:,:,:3]
+            # heatmap = cv2.cvtColor(heatmap, cv2.COLOR_RGB2BGR)
+            plt.clf()
+            plt.imshow(depth, cmap=plt.get_cmap('plasma'))
+            plt.savefig(save_path)
+            # cv2.imwrite(save_path, heatmap)
             # cv2.imwrite(save_path, depth)
 
         print("-> No ground truth is available for the KITTI benchmark, so not evaluating. Done.")
