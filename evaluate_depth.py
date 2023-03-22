@@ -218,5 +218,5 @@ if __name__ == "__main__":
     if options.config is not None:
         config_module = importlib.import_module('configs.{}'.format(options.config))
         options.__dict__.update(config_module.cfg)
-        options.model_name =  options.config
+        options.model_name =  options.config)
     evaluate(options)
