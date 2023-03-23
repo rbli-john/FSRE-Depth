@@ -153,7 +153,8 @@ def evaluate(opt):
             # heat map
             print("depth:", depth.shape)
             plt.clf()
-            plt.imshow(depth, cmap=plt.get_cmap('plasma'))
+            plt.figure(figsize = (1216, 352))
+            plt.imshow(depth, cmap=plt.get_cmap('plasma'), interpolation='nearest')
             plt.axis('off')
             plt.savefig(save_path, bbox_inches='tight', pad_inches=0)
             cv2.imwrite(os.path.join(save_dir, 'original.png'), depth)
