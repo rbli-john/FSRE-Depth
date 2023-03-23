@@ -1,11 +1,12 @@
 # model
+Trained_weights/*
 result/*
 *.pth
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-
+__MACOSX/
 # C extensions
 *.so
 
