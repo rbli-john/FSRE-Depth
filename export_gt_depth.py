@@ -56,12 +56,12 @@ def export_gt_depths_kitti():
             print("gt_depth:", gt_depth.shape) # 375, 1242
 
             # heat map
-            disp_resized = cv2.resize(gt_depth, (1216, 352))
+            # disp_resized = cv2.resize(gt_depth, (1216, 352))
             # # depth = STEREO_SCALE_FACTOR * 5.2229753 / disp_resized
             # depth = 32.779243 / disp_resized
-            depth = disp_resized
-            depth = np.clip(depth, 0, 80)
-            depth = np.uint16(depth * 256)
+            # depth = disp_resized
+            # depth = np.clip(depth, 0, 80)
+            # depth = np.uint16(depth * 256)
             print(depth)
             # MIN_DEPTH = 1e-3
             # MAX_DEPTH = 80
