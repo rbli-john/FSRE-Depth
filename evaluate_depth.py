@@ -153,8 +153,8 @@ def evaluate(opt):
             # heat map
             print("depth:", depth.shape)
             plt.clf()
-            fig, ax = plt.subplots(figsize=(1216, 352))
-            ax.imshow(depth, cmap=plt.get_cmap('plasma'), interpolation='nearest')
+            plt.rcParams['figure.figsize'] = 1216, 352
+            plt.imshow(depth, cmap=plt.get_cmap('plasma'), interpolation='nearest')
             plt.axis('off')
             plt.tight_layout()
             plt.savefig(save_path) #bbox_inches='tight', pad_inches=0
