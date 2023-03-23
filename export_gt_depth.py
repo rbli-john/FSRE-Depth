@@ -21,7 +21,7 @@ def export_gt_depths_kitti():
                         choices=["eigen", "eigen_benchmark", "predictions"]) # "predictions" for small batch of self selected images
     opt = parser.parse_args()
 
-    if args.split == "predictions":
+    if opt.split == "predictions":
         split_folder = os.path.join(os.path.dirname(__file__), "predictions", "image")
     else:
         split_folder = os.path.join(os.path.dirname(__file__), "splits", opt.split)
