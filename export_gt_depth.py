@@ -58,7 +58,7 @@ def export_gt_depths_kitti():
             save_path = os.path.join("predictions", "ground_truth", "{:010d}.png".format(idx))
             plt.clf()
             plt.figure(figsize = (17, 5), dpi=100)
-            plt.imshow(depth, cmap=plt.get_cmap('plasma'), interpolation='nearest')
+            plt.imshow(gt_depth, cmap=plt.get_cmap('plasma'), interpolation='nearest')
             plt.axis('off')
             plt.savefig(save_path, bbox_inches='tight', pad_inches=0)
 
