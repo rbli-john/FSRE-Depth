@@ -154,9 +154,9 @@ def evaluate(opt):
             print("depth:", depth.shape)
             plt.clf()
             plt.figure(figsize = (1216, 352))
-            plt.imshow(depth, cmap=plt.get_cmap('plasma'), interpolation='nearest')
+            plt.imshow(depth, cmap=plt.get_cmap('plasma'), interpolation='none')
             plt.axis('off')
-            plt.savefig(save_path)
+            plt.savefig(save_path) #bbox_inches='tight', pad_inches=0
             cv2.imwrite(os.path.join(save_dir, 'original.png'), depth)
 
         print("-> No ground truth is available for the KITTI benchmark, so not evaluating. Done.")
