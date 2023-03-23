@@ -62,6 +62,7 @@ def export_gt_depths_kitti():
             # depth = np.clip(depth, 0, 80)
             # depth = np.uint16(depth * 256)
 
+            depth = gt_depth
             save_path = os.path.join("predictions", "ground_truth", "{:010d}.png".format(idx))
             plt.clf()
             # plt.figure(figsize = (17, 5), dpi=100)
