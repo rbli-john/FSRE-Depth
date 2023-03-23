@@ -53,7 +53,7 @@ def export_gt_depths_kitti():
             velo_filename = os.path.join(opt.data_path, folder,
                                          "velodyne_points/data", "{:010d}.bin".format(frame_id))
             gt_depth = generate_depth_map(calib_dir, velo_filename, 2, True)
-            print("gt_depth:", gt_depth.shape) # 375, 1242
+            
 
             # heat map
             # disp_resized = cv2.resize(gt_depth, (1216, 352))
@@ -62,14 +62,13 @@ def export_gt_depths_kitti():
             # depth = disp_resized
             # depth = np.clip(depth, 0, 80)
             # depth = np.uint16(depth * 256)
-            
-            
             MIN_DEPTH = 1e-3
             MAX_DEPTH = 80
             depth = gt_depth
-            mask = np.logical_and(depth > MIN_DEPTH, depth < MAX_DEPTH) # 446574 19176, 96%
-            print(depth)
-            print(np.count_nonzero(np.logical_not(mask)), np.count_nonzero(mask))
+            # print(depth)
+            # mask = np.logical_and(depth > MIN_DEPTH, depth < MAX_DEPTH) # 446574 19176, 96%
+            # print(depth)
+            # print(np.count_nonzero(np.logical_not(mask)), np.count_nonzero(mask))
             save_path = os.path.join("predictions", "ground_truth", "{:010d}.png".format(idx))
             plt.clf()
             # plt.figure(figsize = (17, 5), dpi=100)
