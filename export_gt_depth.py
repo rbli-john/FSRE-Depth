@@ -63,10 +63,12 @@ def export_gt_depths_kitti():
             # depth = np.clip(depth, 0, 80)
             # depth = np.uint16(depth * 256)
             
-            print(depth)
+            
             MIN_DEPTH = 1e-3
             MAX_DEPTH = 80
-            mask = np.logical_and(gt_depth > MIN_DEPTH, gt_depth < MAX_DEPTH) # 446574 19176, 96%
+            depth = gt_depth
+            mask = np.logical_and(depth > MIN_DEPTH, depth < MAX_DEPTH) # 446574 19176, 96%
+            print(depth)
             print(np.count_nonzero(np.logical_not(mask)), np.count_nonzero(mask))
             save_path = os.path.join("predictions", "ground_truth", "{:010d}.png".format(idx))
             plt.clf()
