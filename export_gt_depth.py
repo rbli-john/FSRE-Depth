@@ -3,6 +3,7 @@ import os
 
 import PIL.Image as pil
 import matplotlib.pyplot as plt
+import cv2
 import numpy as np
 
 from datasets.kitti_utils import generate_depth_map
@@ -52,13 +53,19 @@ def export_gt_depths_kitti():
             velo_filename = os.path.join(opt.data_path, folder,
                                          "velodyne_points/data", "{:010d}.bin".format(frame_id))
             gt_depth = generate_depth_map(calib_dir, velo_filename, 2, True)
-            print("gt_depth:", gt_depth.shape)
+            print("gt_depth:", gt_depth.shape) # 375, 1242
 
             # heat map
+            disp_resized = cv2.resize(gt_depth, (1216, 352))
+            # depth = STEREO_SCALE_FACTOR * 5.2229753 / disp_resized
+            depth = 32.779243 / disp_resized
+            depth = np.clip(depth, 0, 80)
+            depth = np.uint16(depth * 256)
+
             save_path = os.path.join("predictions", "ground_truth", "{:010d}.png".format(idx))
             plt.clf()
             plt.figure(figsize = (17, 5), dpi=100)
-            plt.imshow(gt_depth, cmap=plt.get_cmap('plasma'), interpolation='nearest')
+            plt.imshow(depth, cmap=plt.get_cmap('plasma'), interpolation='nearest')
             plt.axis('off')
             plt.savefig(save_path, bbox_inches='tight', pad_inches=0)
 
