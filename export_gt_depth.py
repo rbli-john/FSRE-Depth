@@ -70,7 +70,7 @@ def export_gt_depths_kitti():
             # print(depth)
             # print(np.count_nonzero(np.logical_not(mask)), np.count_nonzero(mask))
             
-            depth = cv2.inpaint(np.array(depth).astype(float32), np.uint8(mask), 10, cv2.INPAINT_TELEA)
+            depth = cv2.inpaint(np.array(depth).astype(np.float32), np.uint8(mask), 10, cv2.INPAINT_TELEA)
             save_path = os.path.join("predictions", "ground_truth", "{:010d}.png".format(idx))
             plt.clf()
             # plt.figure(figsize = (17, 5), dpi=100)
