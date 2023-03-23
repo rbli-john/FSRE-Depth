@@ -69,8 +69,8 @@ def export_gt_depths_kitti():
             mask = np.logical_not(np.logical_and(depth > MIN_DEPTH, depth < MAX_DEPTH)) # 446574 19176, 96%
             # print(depth)
             # print(np.count_nonzero(np.logical_not(mask)), np.count_nonzero(mask))
-            depth = cv2.cvtColor(cv2.UMat(depth), cv2.COLOR_RGB2GRAY)
-            depth = cv2.inpaint(depth, mask, 10, cv2.INPAINT_TELEA)
+            
+            depth = cv2.inpaint(np.array(depth), mask, 10, cv2.INPAINT_TELEA)
             save_path = os.path.join("predictions", "ground_truth", "{:010d}.png".format(idx))
             plt.clf()
             # plt.figure(figsize = (17, 5), dpi=100)
