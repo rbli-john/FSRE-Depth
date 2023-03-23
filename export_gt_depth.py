@@ -62,7 +62,7 @@ def export_gt_depths_kitti():
             # depth = disp_resized
             # depth = np.clip(depth, 0, 80)
             # depth = np.uint16(depth * 256)
-            gt_depth = depth
+            depth = gt_depth
             print(depth)
             # MIN_DEPTH = 1e-3
             # MAX_DEPTH = 80
