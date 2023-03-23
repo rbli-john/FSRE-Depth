@@ -156,7 +156,8 @@ def evaluate(opt):
             # heatmap = cv2.cvtColor(heatmap, cv2.COLOR_RGB2BGR)
             plt.clf()
             plt.imshow(depth, cmap=plt.get_cmap('plasma'))
-            plt.savefig(save_path)
+            plt.axis('off')
+            plt.savefig(save_path, bbox_inches='tight', pad_inches=0)
             # cv2.imwrite(save_path, heatmap)
             # cv2.imwrite(save_path, depth)
 
