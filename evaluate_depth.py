@@ -154,7 +154,7 @@ def evaluate(opt):
             print("depth:", depth.shape)
             plt.clf()
             plt.figure(figsize = (12, 4), dpi=100)
-            plt.imshow(depth, interpolation='nearest') # cmap=plt.get_cmap('plasma')
+            plt.imshow(depth, cmap=plt.get_cmap('plasma'), interpolation='nearest')
             plt.axis('off')
             plt.savefig(save_path, bbox_inches='tight', pad_inches=0) #
             cv2.imwrite(os.path.join(save_dir, 'original.png'), depth)
