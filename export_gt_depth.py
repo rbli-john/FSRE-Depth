@@ -2,6 +2,7 @@ import argparse
 import os
 
 import PIL.Image as pil
+import matplotlib.pyplot as plt
 import numpy as np
 
 from datasets.kitti_utils import generate_depth_map
