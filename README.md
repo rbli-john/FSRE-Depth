@@ -4,7 +4,7 @@
 ```
 sh run_inference.sh [WEIGHT_FOLDER] [CONFIG]
 ```
-- Put the images you want to inference under ```predictions/image/```, named starting from ````000000000.png``` or ```0.png``` (or any other names you defined in ```splits/benchmark/test_files.txt```.
+- Put the images you want to inference under ```predictions/image/```, named starting from ```000000000.png``` or ```0.png``` (or any other names you defined in ```splits/benchmark/test_files.txt```.
 - Modify ```splits/benchmark/test_files.txt```. The file has format:
 ```
 FOLDER_NAME FILE_NAME
