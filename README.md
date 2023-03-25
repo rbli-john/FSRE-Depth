@@ -1,4 +1,20 @@
 # FSRE-Depth
+## Generate predictions
+### Usage
+```
+sh run_inference.sh [WEIGHT_FOLDER] [CONFIG]
+```
+- Put the images you want to inference under ```predictions/image/```, named starting from ````000000000.png``` or ```0.png``` (or any other names you defined in ```splits/benchmark/test_files.txt```.
+- Modify ```splits/benchmark/test_files.txt```. The file has format:
+```
+FOLDER_NAME FILE_NAME
+# For example
+# image 0
+# means 000000000.png in image/
+```
+The original ```splits/benchmark/test_files.txt``` is renamed as ```splits/benchmark/test_files_original.txt```.  
+- The predictions images will be saved to the weight directory.
+- Deliverable: predictions of ```FSRE_res18_192```, ```roiformer_mbnetv2```, ```Roiformer_res18_192```, ```Roifromer_res18_192_adaptive_attn```, ```roiformer_vovnet```, ```Roiformer_vovent_192_adaptive_attn``` and their original images under ```predictions/```. 
 ## Add mobilenetv2 and vovnet v2 encoder
 ### Usage
 ```
