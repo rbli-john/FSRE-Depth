@@ -15,6 +15,13 @@ FOLDER_NAME FILE_NAME
 The original ```splits/benchmark/test_files.txt``` is renamed as ```splits/benchmark/test_files_original.txt```.  
 - The predictions images will be saved to the weight directory.
 - Deliverable: predictions of ```FSRE_res18_192```, ```roiformer_mbnetv2```, ```Roiformer_res18_192```, ```Roifromer_res18_192_adaptive_attn```, ```roiformer_vovnet```, ```Roiformer_vovent_192_adaptive_attn``` and their original images under ```predictions/```. 
+- The original image filenames are organized in ```predictions/image/filenames.txt```. 
+```
+# predictions/image/filenames.txt
+# For example:
+0 2011_09_26/2011_09_26_drive_0002_sync/image_02/data/0000000012.png
+# predictions/image/000000000.png is from 2011_09_26/2011_09_26_drive_0002_sync/image_02/data/0000000012.png
+```
 ## Add mobilenetv2 and vovnet v2 encoder
 ### Usage
 ```
